@@ -1,7 +1,7 @@
 class Teacher < ActiveRecord::Base
 #   has_many :students
   
-# #   validates :email, uniqueness: true
+  validates :email, uniqueness: true
 
 
 # # def self.least_students

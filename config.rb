@@ -9,4 +9,5 @@ ActiveRecord::Base.establish_connection(
 )
 
 require_relative 'app/models/student'
+require_relative 'app/models/teacher'
 # Note: add any other models / classes that need to be required here (eg: Teacher)

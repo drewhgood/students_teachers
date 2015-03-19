@@ -4,6 +4,7 @@ require 'active_support/all'
 require 'active_record/schema_dumper'
 require_relative 'config'
 require_relative 'lib/students_importer'
+require_relative 'lib/teachers_importer'
 
 desc "create the database"
 task "db:create" do
@@ -44,6 +45,7 @@ end
 desc "populate the test database with sample data"
 task "db:populate" do
   StudentsImporter.new.import
+  TeachersImporter.new.import
 end
 
 desc 'Retrieves the current schema version number'
