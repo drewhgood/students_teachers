@@ -13,7 +13,15 @@
 
 ActiveRecord::Schema.define(version: 20140319144238) do
 
-  create_table "students", force: true do |t|
+  create_table "students", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "gender"
+    t.string   "email"
+    t.string   "phone"
+    t.date     "birthday"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
