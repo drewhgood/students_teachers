@@ -1,5 +1,6 @@
 class Teacher < ActiveRecord::Base
-  has_many :students
+  has_many :students_teachers
+  has_many :students, through: :students_teachers
   validates :email, uniqueness: true
 
 
@@ -16,3 +17,5 @@ class Teacher < ActiveRecord::Base
 
 
 end
+
+# :class_name => "StudentsTeachers"

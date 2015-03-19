@@ -1,5 +1,6 @@
 class Student < ActiveRecord::Base
-  belongs_to :teacher
+  has_many :students_teachers
+  has_many :teachers, through: :students_teachers
 
   def assign
    teacher = Teacher.least_students
@@ -10,3 +11,4 @@ class Student < ActiveRecord::Base
 end
 
 
+ # :class_name => "StudentsTeachers"
