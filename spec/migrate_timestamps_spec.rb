@@ -15,6 +15,6 @@ describe "add timestamps" do
         col.type.should == :datetime
       end
     end
-    (found_created_at && found_updated_at).should be_true
+    (found_created_at && found_updated_at).should be true
   end
 end

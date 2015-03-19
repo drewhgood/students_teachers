@@ -3,8 +3,14 @@ class Student < ActiveRecord::Base
   has_many :teachers, through: :students_teachers
 
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
-  validates age, numericality: { only_integer: true, great_than_equal_to Date.today - 3.years }
   validates :email, uniqueness: true
+
+  validate :not_toddler
+
+  def not_toddler
+
+    errors.add(:birthday, "can't be a toddler") if birthday >= (Date.today  - 3.years)
+  end
 
 
   def assign
@@ -18,7 +24,7 @@ class Student < ActiveRecord::Base
   end
 
   def age
-    dob = self.birthdate
+    dob = self.birthday
     now = Time.now.utc.to_date
     now.year - dob.year - ((now.month > dob.month || (now.month == dob.month && now.day >= dob.day)) ? 0 : 1)
   end

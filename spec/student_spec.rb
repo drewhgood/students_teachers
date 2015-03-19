@@ -5,7 +5,7 @@ require_relative '../config'
 describe Student, "#name and #age" do
 
   before(:all) do
-    raise RuntimeError, "be sure to run 'rake db:migrate' before running these specs" unless ActiveRecord::Base.connection.table_exists?(:students).should be_true
+    raise RuntimeError, "be sure to run 'rake db:migrate' before running these specs" unless ActiveRecord::Base.connection.table_exists?(:students).should be true
 
     @student = Student.new
     @student.assign_attributes(
@@ -35,7 +35,7 @@ end
 describe Student, "validations" do
 
   before(:all) do
-    raise RuntimeError, "be sure to run 'rake db:migrate' before running these specs" unless ActiveRecord::Base.connection.table_exists?(:students).should be_true
+    raise RuntimeError, "be sure to run 'rake db:migrate' before running these specs" unless ActiveRecord::Base.connection.table_exists?(:students).should be true
   end
 
   before(:each) do
